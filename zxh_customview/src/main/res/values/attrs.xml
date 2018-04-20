@@ -4,7 +4,9 @@
     <declare-styleable name="CustomTitleBar_tlb">
         <attr name="title_background_color" format="reference|integer" />
         <attr name="title_background_drawable" format="reference|integer" />
+        <attr name="left_button_drawable_visible" format="boolean" />
         <attr name="left_button_visible" format="boolean" />
+        <attr name="right_button_drawable_visible" format="boolean" />
         <attr name="right_button_visible" format="boolean" />
         <attr name="title_text" format="string" />
         <attr name="title_text_color" format="color" />
@@ -15,5 +17,21 @@
         <attr name="left_button_text" format="string" />
         <attr name="left_button_text_color" format="color" />
         <attr name="left_button_drawable" format="reference|integer" />
+    </declare-styleable>
+
+    <declare-styleable name="VerticalArticleView_tlb">
+        <attr name="background_color" format="reference|integer" />
+        <attr name="background_drawable" format="reference|integer" />
+        <attr name="right_image_drawable" format="reference|integer" />
+        <attr name="right_image_drawable_visible" format="boolean" />
+        <attr name="right_text" format="string" />
+        <attr name="right_text_size" format="dimension" />
+        <attr name="right_text_color" format="reference|integer" />
+
+        <attr name="left_image_drawable" format="reference|integer" />
+        <attr name="left_image_drawable_visible" format="boolean" />
+        <attr name="left_text" format="string" />
+        <attr name="left_text_size" format="dimension" />
+        <attr name="left_text_color" format="reference|integer" />
     </declare-styleable>
 </resources>
