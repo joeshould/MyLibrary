@@ -18,76 +18,84 @@ public class FloatUtil {
     private static FloatUtil instance;
     public static List<Activity> mContexts;
 
-    private FloatUtil(){}
+    private FloatUtil() {
+    }
 
-    public static FloatUtil getInstance(){
-        if(instance == null){
+    public static FloatUtil getInstance() {
+        if (instance == null) {
             instance = new FloatUtil();
         }
-        if(mContexts == null){
+        if (mContexts == null) {
             mContexts = new ArrayList<>();
         }
         return instance;
     }
-    public void setOnCLicekListener( View.OnClickListener onCLicekListener){
-        if (floatView != null && floatView.getFloatButton()!= null){
+
+    public void setOnCLicekListener(View.OnClickListener onCLicekListener) {
+        if (floatView != null && floatView.getFloatButton() != null) {
             floatView.getFloatButton().setOnClickListener(onCLicekListener);
         }
     }
 
-    public synchronized void addActivity(Activity context){
-        if(mContexts.contains(context)){
+    public synchronized void addActivity(Activity context) {
+        if (mContexts.contains(context)) {
             return;
         }
         mContexts.add(context);
     }
 
-    public synchronized void removeActivity(Activity context){
-        if(!mContexts.contains(context)){
+    public synchronized void removeActivity(Activity context) {
+        if (!mContexts.contains(context)) {
             return;
         }
         mContexts.remove(context);
     }
 
     public synchronized void showFloatView(Context context) {
-        if(floatView != null){
+        if (floatView != null) {
             floatView.destroy();
             floatView = null;
         }
         initFloatView(context);
     }
 
-    public synchronized void hide(){
-        if(floatView != null){
+    public synchronized void hide() {
+        if (floatView != null) {
             floatView.setVisibility(View.VISIBLE);
         }
     }
 
-    private void initFloatView(Context context){
+    private void initFloatView(Context context) {
         floatView = new FloatView(context);
         floatView.show();
     }
 
     public synchronized void stopHandler(Context context) {
-        if(floatView == null){
+        if (floatView == null) {
             return;
         }
         floatView.stopHandler();
     }
 
     public synchronized void hideFloatView(Context context) {
-        if(floatView == null){
+        if (floatView == null) {
             return;
         }
         floatView.setVisibility(View.GONE);
     }
 
-    public synchronized Context getCurContext(){
-        if(CollectionsUtil.isEmpty(mContexts)){
+    public synchronized Context getCurContext() {
+        if (CollectionsUtil.isEmpty(mContexts)) {
             return null;
         }
-        return mContexts.get(mContexts.size()-1);
+        return mContexts.get(mContexts.size() - 1);
     }
 
 
+    public boolean isDraging() {
+        if (floatView != null) {
+            return floatView.mDraging;
+        }
+        return false;
+    }
 }

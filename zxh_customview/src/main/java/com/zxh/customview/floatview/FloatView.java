@@ -59,7 +59,7 @@ public class FloatView extends FrameLayout implements OnTouchListener {
     private float mTouchStartY;
     private int mScreenWidth;
     private int mScreenHeight;
-    private boolean mDraging;
+    public boolean mDraging;
 
     private Timer mTimer;
     private TimerTask mTimerTask;

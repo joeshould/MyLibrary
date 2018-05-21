@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         FloatUtil.getInstance().setOnCLicekListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if ( FloatUtil.getInstance() .isDraging())
                 Toast.makeText(MainActivity.this,"jfkdsjafkjksa",Toast.LENGTH_LONG);
             }
         });
@@ -35,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
         FloatUtil.getInstance().stopHandler(this);
     }
 
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FloatUtil.getInstance().removeActivity(this);
+    }
+
     @Override
     public void finish(){
         super.finish();
@@ -43,11 +52,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        FloatUtil.getInstance().removeActivity(this);
     }
 }
